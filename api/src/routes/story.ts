@@ -29,7 +29,7 @@ router.post("/generate", verifyToken, async (req: Request, res: Response) => {
     const userId = user.rows[0].id;
 
     // Gemini API'ye hikaye üretirme modülü //
-    // Kelimelerin hikayede kalın yazılmasını ve Word Chain (Kelime Zinciri) mantığına
+    // Burada kelimelerin hikayede kalın yazılmasını ve Word Chain (Kelime Zinciri) mantığına
     // uygun şekilde birbirine bağlanmasını istiyoruz.
     const geminiResponse = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
