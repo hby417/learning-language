@@ -19,7 +19,7 @@ router.get("/queue", verifyToken, async (req: Request, res: Response) => {
 
     const userId = user.rows[0].id;
 
-    // Henüz öğrenilmemiş olan kelimeleri getir, streak'e göre sırala
+    // Henüz daha öğrenilmemiş olan kelimeleri getir, streak'e göre sırala
     const words = await pool.query(
       `SELECT w.id, w.eng_word, w.tur_word, w.image_url, w.audio_url,
               array_agg(s.sentence) as samples,
@@ -89,7 +89,7 @@ router.post("/result", verifyToken, async (req: Request, res: Response) => {
   }
 });
 
-// İstatistik endpoint'i
+// İstatistiğin endpoint'i
 router.get("/stats", verifyToken, async (req: Request, res: Response) => {
   const { uid } = (req as any).user;
 
