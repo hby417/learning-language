@@ -61,7 +61,7 @@ router.post("/generate", verifyToken, async (req: Request, res: Response) => {
     }
 
     // Pollinations.ai ile görsel üretiyoruz.
-    // Bu servis tamamen ücretsiz ve API key gerektirmiyor.
+    // Bu servis tamamen ücretsiz ve ayrıca API key gerektirmiyor.
     // Prompt olarak kelimeleri ve hikaye temasını kullanıyoruz.
     // URL encode ederek boşluk ve özel karakterleri güvenli hale getiriyoruz.
     const imagePrompt = encodeURIComponent(
