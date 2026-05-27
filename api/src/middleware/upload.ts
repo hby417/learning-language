@@ -1,6 +1,6 @@
 import multer from 'multer'
 import path from 'path'
-
+// Dosya yükleme için multer yapılandırması
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, path.join(__dirname, '../uploads'))
@@ -10,7 +10,7 @@ const storage = multer.diskStorage({
     cb(null, unique + path.extname(file.originalname))
   }
 })
-
+// Sadece belirli dosya türlerine izin ver
 const fileFilter = (req: any, file: Express.Multer.File, cb: multer.FileFilterCallback) => {
   const allowed = ['image/jpeg', 'image/png', 'image/webp', 'audio/mpeg', 'audio/wav', 'audio/ogg']
   if (allowed.includes(file.mimetype)) {
