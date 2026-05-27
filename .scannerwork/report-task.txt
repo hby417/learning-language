@@ -1,0 +1,7 @@
+organization=omerebubekir
+projectKey=learninglang-final
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.88477
+dashboardUrl=https://sonarcloud.io/dashboard?id=learninglang-final
+ceTaskId=AZ5qO8-swiriEQyJToHE
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZ5qO8-swiriEQyJToHE

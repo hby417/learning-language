@@ -13,7 +13,7 @@ Bu proje, aşağıdaki değerli ekip üyelerinin özverili çalışmalarıyla ha
 *   **Şahin Temel**
 *   **Ebubekir Ömer Yeniçağ**
 *   **Özgür Küsmüş**
-*   **Hamza Burak**
+*   **Hamza Burak Yamuk**
 
 ---
 

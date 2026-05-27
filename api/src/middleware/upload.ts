@@ -1,5 +1,5 @@
 import multer from 'multer'
-import path from 'path'
+import path from 'node:path'
 // Dosya yükleme için multer yapılandırması
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {

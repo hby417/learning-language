@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
-import path from 'path'
+import path from 'node:path'
 
 import authRouter from './routes/auth'
 import wordsRouter from './routes/words'

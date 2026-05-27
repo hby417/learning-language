@@ -45,10 +45,10 @@ router.get('/', verifyToken, async (req: Request, res: Response) => {
     )
 
     const stats = general.rows[0]
-    const total = parseInt(stats.total_words)
-    const mastered = parseInt(stats.mastered_words)
-    const learning = parseInt(stats.learning_words)
-    const notStarted = parseInt(stats.not_started)
+    const total = Number.parseInt(stats.total_words)
+    const mastered = Number.parseInt(stats.mastered_words)
+    const learning = Number.parseInt(stats.learning_words)
+    const notStarted = Number.parseInt(stats.not_started)
 
     res.json({
       report: {
