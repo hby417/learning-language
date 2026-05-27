@@ -13,8 +13,9 @@ import reportRouter from './routes/report'
 dotenv.config()
 
 const app = express()
-const PORT = process.env.PORT ?? 5001
 
+const PORT = process.env.PORT ?? 5001
+// CORS yapılandırması
 app.use(cors({
   origin: 'http://localhost:5173',
   credentials: true
@@ -28,7 +29,7 @@ app.use('/api/quiz', quizRouter)
 app.use('/api/story', storyRouter)
 app.use('/uploads', express.static(path.join(__dirname, '../src/uploads')))
 app.use('/api/settings', settingsRouter)
-app.use ('/api/report', reportRouter)
+app.use('/api/report', reportRouter)
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok' })

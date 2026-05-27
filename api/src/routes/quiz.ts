@@ -104,7 +104,7 @@ router.get("/stats", verifyToken, async (req: Request, res: Response) => {
     }
 
     const userId = user.rows[0].id;
-
+    // Kullanıcının toplam kelime sayısı, öğrenilen kelime sayısı ve öğrenme aşamasındaki kelime sayısını hesapla
     const stats = await pool.query(
       `SELECT
         COUNT(*) as total_words,

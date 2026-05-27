@@ -1,13 +1,13 @@
 import { create } from 'zustand'
 import type { User as FirebaseUser } from 'firebase/auth'
-
+// Define the shape of the auth state
 interface AuthState {
   user: FirebaseUser | null
   isLoading: boolean
   setUser: (user: FirebaseUser | null) => void
   setLoading: (loading: boolean) => void
 }
-
+// Create the auth store using Zustand
 const useAuthStore = create<AuthState>((set) => ({
   user: null,
   isLoading: true,
