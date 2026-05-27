@@ -1,11 +1,11 @@
 import axios from 'axios'
 import { auth } from '../firebase'
-
+// Create an Axios instance with the base URL from environment variables
 const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
 })
-
-axiosInstance.interceptors.request.use(async (config:any) => {
+// Add a request interceptor to include the Firebase ID token in the Authorization header
+axiosInstance.interceptors.request.use(async (config: any) => {
   const user = auth.currentUser
   if (user) {
     const token = await user.getIdToken()
@@ -15,8 +15,8 @@ axiosInstance.interceptors.request.use(async (config:any) => {
 })
 
 axiosInstance.interceptors.response.use(
-  (response:any) => response,
-  async (error:any) => {
+  (response: any) => response,
+  async (error: any) => {
     if (error.response?.status === 401) {
       await auth.signOut()
       window.location.href = '/login'
