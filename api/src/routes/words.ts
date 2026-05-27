@@ -14,7 +14,7 @@ router.get('/', verifyToken, async (req: Request, res: Response) => {
       res.status(404).json({ error: 'Kullanıcı bulunamadı' })
       return
     }
-
+    // Kullanıcının kelimelerini ve örnek cümlelerini çek
     const words = await pool.query(
       `SELECT w.*, array_agg(s.sentence) as samples
        FROM words w
@@ -43,7 +43,7 @@ router.post(
     const { uid } = (req as any).user
     const { eng_word, tur_word, samples } = req.body
     const files = req.files as { [fieldname: string]: Express.Multer.File[] }
-
+    // Dosya URL'lerini oluştur
     const imageUrl = files?.image?.[0]
       ? `http://localhost:5001/uploads/${files.image[0].filename}`
       : null
@@ -60,7 +60,7 @@ router.post(
       }
 
       const userId = user.rows[0].id
-
+      // Kelimeyi veritabanına ekle ve eklenen kelimenin ID'sini al
       const word = await pool.query(
         'INSERT INTO words (user_id, eng_word, tur_word, image_url, audio_url) VALUES ($1, $2, $3, $4, $5) RETURNING *',
         [userId, eng_word, tur_word, imageUrl, audioUrl]
@@ -87,7 +87,7 @@ router.post(
     }
   }
 )
-
+// Kelime silme endpoint'i
 router.delete('/:id', verifyToken, async (req: Request, res: Response) => {
   const { uid } = (req as any).user
   const wordId = req.params.id
